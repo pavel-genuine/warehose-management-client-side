@@ -8,10 +8,11 @@ import MyItems from './Components/MyItems/MyItems';
 import SignUp from './Components/SignUp/SignUp';
 import SignIn from './Components/SignIn/SignIn';
 import Blogs from './Components/Blogs/Blogs';
-import AllProducts from './Components/AllProducts/AllProducts';
 import NotFound from './Components/NotFound/NotFound';
 import UpdateItem from './Components/Shared/UpdateItem/UpdateItem';
 import AddItem from './Components/AddItem/AddItem';
+import AllGadgets from './Components/AllGadgets/AllGadgets';
+import Footer from './Components/Shared/Footer/Footer';
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
 
     <Routes>
       <Route path='/' element={<Home></Home>}></Route>
-      <Route path='/all-products' element={<AllProducts></AllProducts>}></Route>
+      <Route path='/all-products' element={<AllGadgets></AllGadgets>}></Route>
       <Route path='/add-item' element={<AddItem></AddItem>}></Route>
       <Route path='/update/:id' element={<UpdateItem></UpdateItem>}></Route>
        <Route path='/my-items' element={<MyItems></MyItems>} ></Route>
@@ -31,6 +32,8 @@ function App() {
        <Route path='*' element={<NotFound></NotFound>}></Route>
       
     </Routes>
+    
+    <Footer></Footer>
     </div>
   );
 }

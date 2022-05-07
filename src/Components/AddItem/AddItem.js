@@ -22,7 +22,7 @@ const AddItem = () => {
 
     }
     return (
-        <div className=' mx-5 my-5 '>
+        <div className=' mx-5 my-5' style={{height:'60vh'}}>
       
       <form   onSubmit={handleSubmit(onSubmit)}>
       <input style={{width:'75%'}} placeholder='name' {...register("name", { required: true})} /> <br />

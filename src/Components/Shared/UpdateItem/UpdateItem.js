@@ -69,8 +69,8 @@ const UpdateItem = () => {
         <div className='mx-5'>
             <img style={{width:'15%'}} src={item?.img} alt="" />  <br />
             {item?.name} <br />
-            {item?.price} <br />
-            {item?.quantity} <br />
+            Price : tk. {item?.price} <br />
+            Quantity : {item?.quantity} <br />
             <button onClick={()=>deliveredHandle()} className='btn btn-success'>Delivered</button>
 
             <br />

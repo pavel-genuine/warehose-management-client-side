@@ -9,8 +9,8 @@ const FeatureItems = () => {
     const [items, setItems]=useItems()
   
     return (
-        <div>
-            <div className='w-75 mx-auto row'>
+        <div className='w-75 mx-auto my-3'>
+            <div className=' mx-auto row'>
                 {}
                 {
                 items?.map(item=><Item item={item} key={item._id}  ></Item>).slice(0,6)

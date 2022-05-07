@@ -19,7 +19,7 @@ const Item = (props) => {
             <p>
             {name} 
             </p>
-            <p>{description}</p>
+            <p title={description}>{description.slice(0,200)}...</p>
 
             <p>
             Price : tk. {price}
