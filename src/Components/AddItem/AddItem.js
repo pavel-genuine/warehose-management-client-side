@@ -1,15 +1,19 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 
 const AddItem = () => {
+    
+    const [user]  =useAuthState(auth)
 
     const { register, handleSubmit } = useForm();
   
     const onSubmit = data =>{
         console.log(data);
-       
+        
         const url =`https://secret-scrubland-28960.herokuapp.com/inventory`
         fetch(url,{
             method : 'POST',
@@ -26,8 +30,9 @@ const AddItem = () => {
         <div className=' mx-5 my-5' style={{height:'60vh'}}>
       
       <form   onSubmit={handleSubmit(onSubmit)}>
+      <input style={{width:'75%'}} value={user?.email} readOnly {...register("email", { required: true})} /> <br />
       <input style={{width:'75%'}} placeholder='name' {...register("name", { required: true})} /> <br />
-      <input style={{width:'75%'}} placeholder='image url' {...register("img", { required: true})} /> <br />
+      <input style={{width:'75%'}} placeholder='image url' {...register("img")} /> <br />
       <input  style={{width:'75%'}}  placeholder='price' type='number' {...register("price" , { required: true})} /> <br />
       <textarea  style={{width:'75%'}} placeholder='description' {...register("description", { required: true})} /> <br />
       <input  style={{width:'75%'}} placeholder='supplier' {...register("supplier", { required: true})} /> <br />

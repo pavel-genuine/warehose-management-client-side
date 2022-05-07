@@ -57,7 +57,7 @@ const SignIn = () => {
 
 
     return (
-        <div className=' d-flex flex-column my-5  align-items-center justify-content-center'>
+        <div style={{height:'60vh'}} className=' d-flex flex-column my-5  align-items-center justify-content-center'>
             {/* <div><Toaster/></div> */}
             <Form onSubmit={handleSignInUser} className="signin" >
 
