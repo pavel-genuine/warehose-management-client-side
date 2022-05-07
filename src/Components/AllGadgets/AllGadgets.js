@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Item from '../Shared/Item/Item';
 import useItems from '../Shared/useItems/useItems';
 
-const AllProducts = () => {
+const AllGadgets = () => {
 
     const [items, setItems] = useItems()
 
@@ -53,4 +53,4 @@ const AllProducts = () => {
     );
 };
 
-export default AllProducts;
+export default AllGadgets;
