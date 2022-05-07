@@ -17,7 +17,7 @@ const FeatureItems = () => {
                 }
             </div>
             <div>
-                <Link to='all-products'><button className='btn btn-primary'>All Items</button></Link>
+                <Link to='/manage-inventory'><button className='btn btn-primary'>Manage Inventories</button></Link>
             </div>
         </div>
     );

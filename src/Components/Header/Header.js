@@ -1,8 +1,14 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 import CustomLink from '../CustomLink/CustomLink';
 
 const Header = () => {
+
+    const [user] =useAuthState(auth)
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">
@@ -23,7 +29,7 @@ const Header = () => {
                                 <CustomLink to="/">Home</CustomLink>
                             </li>
                             <li className="nav-item me-4">
-                                <CustomLink to="/all-products">All Items</CustomLink>
+                                <CustomLink to="/manage-inventory">Manage Inventory</CustomLink>
                             </li>
                             <li className="nav-item me-4">
                                 <CustomLink to="/add-item">Add Item</CustomLink>
@@ -34,23 +40,38 @@ const Header = () => {
                             <li className="nav-item me-4">
                                 <CustomLink to="/blogs">Blogs</CustomLink>
                             </li>
-                          
-                            <li className="nav-item me-2">
-                                <CustomLink to="sign-up">SignUp</CustomLink>
-                            </li>
-                            /
-                            <li className="nav-item ms-2">
-                                <CustomLink to="/sign-in">SignIn</CustomLink>
-                            </li>
+                             
+                             {
+                                 user ? "" :
+                                 <li className="nav-item me-2">
+                                 <CustomLink to="sign-up">SignUp</CustomLink>
+                             </li>}
+                             {
+                                 user ? "": <li className='mx-2'>/</li>
+                             }
+                             { user?  "" : 
+                             <li className="nav-item ">
+                                 <CustomLink to="/sign-in">SignIn</CustomLink>
+                             </li>
+                             }
+                               
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dropdown
-                                </a>
-                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                   
-                                </ul>
-                            </li>
+
+{
+    user ? <span className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: 'black', color: 'white', borderRadius: '30px', padding: '10px', marginLeft: '10px' }}>
+        {user?.email}
+    </span> : ''
+}
+
+<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+
+
+    <button style={{ border: '0', backgroundColor: 'black', color: 'white', width: '100%' }} onClick={() => signOut(auth)} >Sign Out</button>
+
+
+
+</ul>
+</li>
                         
 
                         </ul>

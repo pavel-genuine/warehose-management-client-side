@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { Link } from 'react-router-dom';
 
 
 const AddItem = () => {
@@ -31,7 +32,9 @@ const AddItem = () => {
       <textarea  style={{width:'75%'}} placeholder='description' {...register("description", { required: true})} /> <br />
       <input  style={{width:'75%'}} placeholder='supplier' {...register("supplier", { required: true})} /> <br />
       <input  style={{width:'75%'}} placeholder='quantity' type="number" {...register("quantity" , { required: true})} /> <br />  <br />
-      <input className='btn btn-danger' type="submit" />
+      <input className='btn btn-danger me-3' type="submit" />
+      <Link to='/manage-inventory'><button className='btn btn-primary'>Manage Inventories</button></Link>
+
     </form>
         </div>
     );

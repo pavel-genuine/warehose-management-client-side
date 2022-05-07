@@ -11,8 +11,8 @@ import Blogs from './Components/Blogs/Blogs';
 import NotFound from './Components/NotFound/NotFound';
 import UpdateItem from './Components/Shared/UpdateItem/UpdateItem';
 import AddItem from './Components/AddItem/AddItem';
-import AllGadgets from './Components/AllGadgets/AllGadgets';
 import Footer from './Components/Shared/Footer/Footer';
+import ManageInventory from './Components/ManageInventory/ManageInventory';
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
 
     <Routes>
       <Route path='/' element={<Home></Home>}></Route>
-      <Route path='/all-products' element={<AllGadgets></AllGadgets>}></Route>
+      <Route path='/manage-inventory' element={<ManageInventory></ManageInventory>}></Route>
       <Route path='/add-item' element={<AddItem></AddItem>}></Route>
       <Route path='/update/:id' element={<UpdateItem></UpdateItem>}></Route>
        <Route path='/my-items' element={<MyItems></MyItems>} ></Route>
