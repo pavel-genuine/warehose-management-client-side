@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+
 import './App.css';
+
+import { Route, Routes } from 'react-router-dom';
+import Header from './Components/Header/Header';
+import Home from './Components/Home/Home';
+import MyItems from './Components/MyItems/MyItems';
+import SignUp from './Components/SignUp/SignUp';
+import SignIn from './Components/SignIn/SignIn';
+import Blogs from './Components/Blogs/Blogs';
+import AllProducts from './Components/AllProducts/AllProducts';
+import NotFound from './Components/NotFound/NotFound';
+import UpdateItem from './Components/Shared/UpdateItem/UpdateItem';
+import AddItem from './Components/AddItem/AddItem';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <Header></Header>
+
+    <Routes>
+      <Route path='/' element={<Home></Home>}></Route>
+      <Route path='/all-products' element={<AllProducts></AllProducts>}></Route>
+      <Route path='/add-item' element={<AddItem></AddItem>}></Route>
+      <Route path='/update/:id' element={<UpdateItem></UpdateItem>}></Route>
+       <Route path='/my-items' element={<MyItems></MyItems>} ></Route>
+       <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+       <Route path='/sign-up' element={<SignUp></SignUp>}></Route>
+       <Route path='/sign-in' element={<SignIn></SignIn>}></Route>
+       <Route path='*' element={<NotFound></NotFound>}></Route>
+      
+    </Routes>
     </div>
   );
 }
