@@ -13,6 +13,7 @@ import UpdateItem from './Components/Shared/UpdateItem/UpdateItem';
 import AddItem from './Components/AddItem/AddItem';
 import Footer from './Components/Shared/Footer/Footer';
 import ManageInventory from './Components/ManageInventory/ManageInventory';
+import RequireAuth from './Components/RequireAuth/RequireAuth';
 
 
 function App() {
@@ -23,9 +24,15 @@ function App() {
     <Routes>
       <Route path='/' element={<Home></Home>}></Route>
       <Route path='/manage-inventory' element={<ManageInventory></ManageInventory>}></Route>
-      <Route path='/add-item' element={<AddItem></AddItem>}></Route>
-      <Route path='/update/:id' element={<UpdateItem></UpdateItem>}></Route>
-       <Route path='/my-items' element={<MyItems></MyItems>} ></Route>
+      <Route path='/add-item' element={<RequireAuth>
+        <AddItem></AddItem>
+      </RequireAuth>}></Route>
+      <Route path='/update/:id' element={<RequireAuth>
+        <UpdateItem></UpdateItem>
+      </RequireAuth>}></Route>
+       <Route path='/my-items' element={<RequireAuth>
+        <MyItems></MyItems>
+       </RequireAuth>} ></Route>
        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
        <Route path='/sign-up' element={<SignUp></SignUp>}></Route>
        <Route path='/sign-in' element={<SignIn></SignIn>}></Route>
