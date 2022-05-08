@@ -37,20 +37,13 @@ const MyItems = () => {
         }
     }
 
-    // useEffect(()=>{
-        
-    //     const email =user?.email
-    //     const url = `https://secret-scrubland-28960.herokuapp.com/user-items?email=${email}`;
-    //     fetch(url)
-    //     .then(res=>res.json())
-    //     .then(data=>setMyItems(data))
-    // },[user])
+   
 
     useEffect( () => {
         
         const getMyItems = async() =>{
             const email = user.email;
-            const url = `http://localhost:5000/user-items?email=${email}`;
+            const url = `https://secret-scrubland-28960.herokuapp.com/user-items?email=${email}`;
             try{
                 const {data} = await axios.get(url,{
                     headers:{
