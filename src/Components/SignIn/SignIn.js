@@ -45,9 +45,9 @@ const SignIn = () => {
     let navigate = useNavigate();
     let location = useLocation();
     let from = location?.state?.from?.pathname || "/";
-    // if (user || user1) {
-    //     // navigate(from, { replace: true });
-    // }
+    if (user || user1) {
+        navigate(from, { replace: true });
+    }
 
 
 
@@ -69,7 +69,6 @@ const SignIn = () => {
 
         const {data} = await axios.post('https://secret-scrubland-28960.herokuapp.com/sign-in', {email});
         localStorage.setItem('accessToken', data?.accessToken);
-        navigate(from, { replace: true });
 
     }
 
