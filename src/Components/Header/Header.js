@@ -54,6 +54,9 @@ const Header = () => {
                             ""
                             }
                             <li className="nav-item me-4">
+                                <CustomLink to="/dashboard">Dashboard</CustomLink>
+                            </li>
+                            <li className="nav-item me-4">
                                 <CustomLink to="/blogs">Blogs</CustomLink>
                             </li>
                             <li className="nav-item me-4">
