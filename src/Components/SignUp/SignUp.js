@@ -72,7 +72,7 @@ const SignUp = () => {
                     <Form.Control style={{ backgroundColor: '#f6f3f3', border: 0, padding: '12px', fontSize: '18px' }} required type="password" placeholder="Confirm  Password" />
                 </Form.Group>
                 <input className="border-2 w-100 rounded text-center fs-5 " style={{ height: '50px',backgroundColor:'orange', color:'black' }} type="submit" value="Sign Up" />
-                <p className='text-danger mt-3' >Already Have an account ?  <Link className='text-decoration-none ' to='/signin'>Sign In</Link></p>
+                <p className='text-danger mt-3' >Already Have an account ?  <Link className='text-decoration-none ' to='/sign-in'>Sign In</Link></p>
                 <p className='text-danger '>{error ? error.message : ''}</p>
             </Form>
 

@@ -36,15 +36,15 @@ const SignIn = () => {
       // ...
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
+      const errorCode = error?.code;
+      const errorMessage = error?.message;
       setError5(errorMessage)
     });
 
   
     let navigate = useNavigate();
     let location = useLocation();
-    let from = location.state?.from?.pathname || "/";
+    let from = location?.state?.from?.pathname || "/";
     // if (user || user1) {
     //     // navigate(from, { replace: true });
     // }
@@ -67,8 +67,8 @@ const SignIn = () => {
         await signInWithEmailAndPassword1(email, password)
         setError(error5)
 
-        const {data} = await axios.post('http://localhost:5000/sign-in', {email});
-        localStorage.setItem('accessToken', data.accessToken);
+        const {data} = await axios.post('https://secret-scrubland-28960.herokuapp.com/sign-in', {email});
+        localStorage.setItem('accessToken', data?.accessToken);
         navigate(from, { replace: true });
 
     }
@@ -90,7 +90,7 @@ const SignIn = () => {
                 </Form.Group>
 
                 <input className=" border-2 w-100 rounded text-center fs-5 " style={{ height: '50px',backgroundColor:'orange', color:'black' }} type="submit" value="Sign In" />
-                <p className='text-danger mt-3' >Don't Have an account ?  <Link  className='text-decoration-none ' to='/signup'>Sign up</Link></p>
+                <p className='text-danger mt-3' >Don't Have an account ?  <Link  className='text-decoration-none ' to='/sign-up'>Sign up</Link></p>
                   {error ?<p className='text-danger mt-3' >{error}</p> : ''}
                 <div>
                     <span className='text-danger' >Forgot Password ?</span>
