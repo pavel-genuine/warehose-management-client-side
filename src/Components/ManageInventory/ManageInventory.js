@@ -1,17 +1,21 @@
 import React from 'react';
+import { Spinner } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 import Item from '../Shared/Item/Item';
 import useItems from '../Shared/useItems/useItems';
 
 const ManageInventory = () => {
 
     const [items, setItems] = useItems()
-
+    const [user] =useAuthState(auth)
     const navigate=useNavigate() 
 
-    
+
 
     const handleDeleteOne = id =>{
+        if(user){
         const confirmation = window.confirm('Are you sure to delete?');
         if(confirmation){
             const url = `https://secret-scrubland-28960.herokuapp.com/inventory/${id}`;
@@ -26,6 +30,10 @@ const ManageInventory = () => {
                 const remainingItems = items?.filter(item => item?._id !== id);
                 setItems(remainingItems);
             })
+        }}
+
+        else{
+            navigate("/sign-in")
         }
     }
 
@@ -34,13 +42,12 @@ const ManageInventory = () => {
            {
                
                items?.map(item=><div className=' col-md-6 shadow my-2' key={item._id}>
-                   {/* <Item item={item} key={item._id}  ></Item> */}
                     
                     <h5>{item?.supplier}</h5>
                     <p>{item?.name}</p>
                     <p>Price : tk. {item?.price}</p>
                     <p>Quantity : {item?.quantity} pcs</p>
-                    <button onClick={()=>navigate(`/update/${item?._id}`)} className='btn btn-success' >update</button>
+                    <button onClick={()=>navigate(`/inventory/${item?._id}`)} className='btn btn-success' >update</button>
 
                    <button className='btn btn-danger' onClick={()=>handleDeleteOne(item?._id)}>Delete</button>
                    </div> )

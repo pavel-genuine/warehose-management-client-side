@@ -28,15 +28,31 @@ const Header = () => {
                           <li className="nav-item me-4">
                                 <CustomLink to="/">Home</CustomLink>
                             </li>
+                            {
+                                user ? 
                             <li className="nav-item me-4">
                                 <CustomLink to="/manage-inventory">Manage Inventory</CustomLink>
-                            </li>
+                            </li> 
+                            :
+                            ""
+                            }
+                            {
+                                user ?
+                            
                             <li className="nav-item me-4">
                                 <CustomLink to="/add-item">Add Item</CustomLink>
                             </li>
+                            :
+                            ""
+                            }
+                            {
+                                user ?
                             <li className="nav-item me-4">
                                 <CustomLink to="/my-items">My Items</CustomLink>
                             </li>
+                            :
+                            ""
+                            }
                             <li className="nav-item me-4">
                                 <CustomLink to="/blogs">Blogs</CustomLink>
                             </li>

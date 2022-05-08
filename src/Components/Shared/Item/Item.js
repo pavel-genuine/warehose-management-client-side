@@ -7,7 +7,7 @@ const Item = (props) => {
     const navigate=useNavigate() 
 
     const updateItem =(_id)=>{
-        navigate(`/update/${_id}`)
+        navigate(`/inventory/${_id}`)
     }
 
     return (
