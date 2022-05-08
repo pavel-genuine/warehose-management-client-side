@@ -74,7 +74,7 @@ const MyItems = () => {
 
 
     return (
-        <div className='row w-75 mx-auto ' style={{height:'80vh'}} >
+        <div className='row w-75 mx-auto ' style={{height:'100vh'}} >
             <p className='m-5'>My items length : {myItems.length}</p>
             {
                

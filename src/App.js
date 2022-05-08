@@ -14,6 +14,7 @@ import AddItem from './Components/AddItem/AddItem';
 import Footer from './Components/Shared/Footer/Footer';
 import ManageInventory from './Components/ManageInventory/ManageInventory';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
+import ContactUs from './Components/ContactUs/ContactUs';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
        <Route path='/sign-up' element={<SignUp></SignUp>}></Route>
        <Route path='/sign-in' element={<SignIn></SignIn>}></Route>
+       <Route path='/contact-us' element={<ContactUs></ContactUs>}></Route>
        <Route path='*' element={<NotFound></NotFound>}></Route>
       
     </Routes>

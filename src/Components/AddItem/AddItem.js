@@ -3,6 +3,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 
 const AddItem = () => {
@@ -11,8 +13,11 @@ const AddItem = () => {
 
     const { register, handleSubmit } = useForm();
   
-    const onSubmit = data =>{
+    const onSubmit = (data,e)=>{
         console.log(data);
+        e.target.reset(); 
+        toast.success('Item added successfully!')
+
         
         const url =`https://secret-scrubland-28960.herokuapp.com/inventory`
         fetch(url,{
@@ -25,10 +30,13 @@ const AddItem = () => {
         .then(res=>res.json())
         .then(result=>console.log(result))
 
+
     }
     return (
-        <div className=' mx-5 my-5' style={{height:'60vh'}}>
-      
+        <div className='ps-1 mx-5 my-5' style={{height:'60vh'}}>
+        
+         <div><Toaster/></div>
+
       <form   onSubmit={handleSubmit(onSubmit)}>
       <input style={{width:'75%'}} value={user?.email} readOnly {...register("email", { required: true})} /> <br />
       <input style={{width:'75%'}} placeholder='name' {...register("name", { required: true})} /> <br />

@@ -14,13 +14,13 @@ const Header = () => {
             <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">
                 <div className="container-fluid">
                    <div className='row w-100'>
-                 <div className='col-md-4'>
+                 <div className='col-md-4' style={{position:'relative'}}>
                  <Link style={{color:'orange',fontWeight:'lighter'}} className="navbar-brand" to="/"><h5>Gadget Arena</h5></Link>
-                    <button style={{marginLeft:'150px'}}  className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button style={{marginLeft:'0px', position:'absolute',right:'0',top:'0'}}  className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span  className="navbar-toggler-icon"></span>
                     </button>
                  </div>
-                   <div className='col-md-6'>
+                   <div className='col-md-8'>
                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         
@@ -55,6 +55,9 @@ const Header = () => {
                             }
                             <li className="nav-item me-4">
                                 <CustomLink to="/blogs">Blogs</CustomLink>
+                            </li>
+                            <li className="nav-item me-4">
+                                <CustomLink to="/contact-us">Contact</CustomLink>
                             </li>
                              
                              {
