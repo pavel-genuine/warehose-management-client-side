@@ -16,6 +16,7 @@ const AddItem = () => {
     const onSubmit = (data,e)=>{
         console.log(data);
         e.target.reset(); 
+         {/* react hot toast  */}
         toast.success('Item added successfully!')
 
         
@@ -35,8 +36,11 @@ const AddItem = () => {
     return (
         <div className='ps-1 mx-5 my-5' style={{height:'60vh'}}>
         
+        {/* react hot toast  */}
          <div><Toaster/></div>
 
+      {/* react form hook  */}
+      
       <form   onSubmit={handleSubmit(onSubmit)}>
       <input style={{width:'75%'}} value={user?.email} readOnly {...register("email", { required: true})} /> <br />
       <input style={{width:'75%'}} placeholder='name' {...register("name", { required: true})} /> <br />

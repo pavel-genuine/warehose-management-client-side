@@ -7,6 +7,7 @@ import useItems from '../Shared/useItems/useItems';
 
 const FeatureItems = () => {
 
+    // useItems custom hook 
     const [items, setItems]=useItems([])
 
     if(items?.length===0){

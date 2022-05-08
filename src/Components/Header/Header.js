@@ -24,6 +24,7 @@ const Header = () => {
                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         
+                        {/* customlink used  */}
                           
                           <li className="nav-item me-4">
                                 <CustomLink to="/">Home</CustomLink>

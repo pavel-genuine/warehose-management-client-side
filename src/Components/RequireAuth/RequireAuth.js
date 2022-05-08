@@ -21,6 +21,7 @@ const RequireAuth = ({children}) => {
     }
     if(!user){
           
+        // redirecting the location 
         return <Navigate to='/sign-in' state={{from:location}} replace ></Navigate>
 
     } 

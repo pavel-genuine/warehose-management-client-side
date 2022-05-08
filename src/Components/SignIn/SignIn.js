@@ -18,6 +18,7 @@ const SignIn = () => {
     const [error,setError] =useState('')
     const [error5,setError5] =useState('')
 
+    // react-firebase-hook 
     let [
         signInWithEmailAndPassword1,
         user,
@@ -77,6 +78,8 @@ const SignIn = () => {
     return (
         <div style={{height:'60vh'}} className=' d-flex flex-column my-5  align-items-center justify-content-center'>
             <div><Toaster/></div>
+
+            {/* react-bootstrap form  */}
             <Form onSubmit={handleSignInUser} className="signin" >
 
                 <Form.Group className="mb-3" controlId="formBasicEmail1">

@@ -19,6 +19,8 @@ const Dashboard = () => {
         <div  className='dash-board'>
             <div style={{height:'70vh'}} className="w-100 my-5 mx-auto">
                 <h5 className='text-center' style={{ color: '#82ca9d' }}>Bar Chart of Stock</h5>
+               
+               {/* rechart using  */}
                 <BarChart className='bar mx-auto' title="Chart of PU x UV" width={300} height={300} data={data}>
 
                     <XAxis dataKey="price" stroke="#8884d8" />

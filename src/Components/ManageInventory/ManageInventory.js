@@ -14,6 +14,8 @@ const ManageInventory = () => {
 
     if(items?.length===0){
         return <div style={{margin:'200px 0 40vh 700px'}}>
+            
+            {/* react-bootstrap spinner  */}
             <Spinner animation="grow" />
             <Spinner style={{margin:'0 20px 0 20px '}} animation="grow" />
             <Spinner animation="grow" />
