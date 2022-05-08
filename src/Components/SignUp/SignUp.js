@@ -71,7 +71,7 @@ const SignUp = () => {
                 <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
                     <Form.Control style={{ backgroundColor: '#f6f3f3', border: 0, padding: '12px', fontSize: '18px' }} required type="password" placeholder="Confirm  Password" />
                 </Form.Group>
-                <input className="bg-dark border-0 text-white w-100 rounded text-center fs-5 " style={{ height: '50px' }} type="submit" value="Sign Up" />
+                <input className="border-2 w-100 rounded text-center fs-5 " style={{ height: '50px',backgroundColor:'orange', color:'black' }} type="submit" value="Sign Up" />
                 <p className='text-danger mt-3' >Already Have an account ?  <Link className='text-decoration-none ' to='/signin'>Sign In</Link></p>
                 <p>{error ? error.message : ''}</p>
             </Form>
@@ -79,7 +79,7 @@ const SignUp = () => {
 
 
             <div>
-                <input onClick={() => signInWithGoogle()} className="bg-dark border-0 text-white w-100 rounded text-center fs-5 px-5 my-3 " style={{ height: '40px' }} type="button" value="Google Sign In" />
+                <input onClick={() => signInWithGoogle()} className="border-2  w-100 rounded text-center fs-5 px-5 my-3 " style={{ height: '40px',backgroundColor:'orange', color:'black' }} type="button" value="Google Sign In" />
 
             </div>
 

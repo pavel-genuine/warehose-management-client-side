@@ -70,8 +70,8 @@ const SignIn = () => {
                     <Form.Control onBlur={handlePassword} required style={{ backgroundColor: '#f6f3f3', border: 0, padding: '12px', fontSize: '18px' }} type="password" placeholder="Password" />
                 </Form.Group>
 
-                <input className="bg-dark border-0 text-white w-100 rounded text-center fs-5 " style={{ height: '50px' }} type="submit" value="Sign In" />
-                <p className='text-danger mt-3' >Don't Have an account ?  <Link className='text-decoration-none ' to='/signup'>Sign up</Link></p>
+                <input className=" border-2 w-100 rounded text-center fs-5 " style={{ height: '50px',backgroundColor:'orange', color:'black' }} type="submit" value="Sign In" />
+                <p className='text-danger mt-3' >Don't Have an account ?  <Link  className='text-decoration-none ' to='/signup'>Sign up</Link></p>
                 <p>{error ? error.message : ''}</p>
 
                 <div>
@@ -88,7 +88,7 @@ const SignIn = () => {
 
 
             <div>
-                <input onClick={() => signInWithGoogle()} className="bg-dark border-0 text-white w-100 rounded text-center fs-5 px-5 my-3 " style={{ height: '40px' }} type="button" value="Google Sign In" />
+                <input onClick={() => signInWithGoogle()} className="border-2 w-100 rounded text-center fs-5 px-5 my-3 " style={{ height: '40px', backgroundColor:'orange', color:'black' }} type="button" value="Google Sign In" />
 
             </div>
 

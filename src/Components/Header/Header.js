@@ -15,7 +15,7 @@ const Header = () => {
                 <div className="container-fluid">
                    <div className='row w-100'>
                  <div className='col-md-4'>
-                 <Link className="navbar-brand" to="/">Gadget Arena</Link>
+                 <Link style={{color:'orange',fontWeight:'lighter'}} className="navbar-brand" to="/"><h5>Gadget Arena</h5></Link>
                     <button style={{marginLeft:'150px'}}  className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span  className="navbar-toggler-icon"></span>
                     </button>
@@ -74,7 +74,8 @@ const Header = () => {
                             <li className="nav-item dropdown">
 
 {
-    user ? <span className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: 'black', color: 'white', borderRadius: '30px', padding: '10px', marginLeft: '10px' }}>
+    user ? <span className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" 
+    style={{ backgroundColor: 'orange', color: 'black', borderRadius: '30px', padding: '10px', marginLeft: '10px' }}>
         {user?.email}
     </span> : ''
 }
