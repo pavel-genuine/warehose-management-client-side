@@ -1,3 +1,4 @@
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
@@ -5,33 +6,48 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWith
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import './SignIn.css'
+// import {signInWithEmailAndPassword} from "firebase/auth";
 
 const SignIn = () => {
 
 
-
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [error,setError] =useState('')
+    const [error5,setError5] =useState('')
 
     let [
-        signInWithEmailAndPassword,
+        signInWithEmailAndPassword1,
         user,
-        error,
+        error1,
     ] = useSignInWithEmailAndPassword(auth);
 
-    const [signInWithGoogle, user1, loading, error1] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, user1, loading, error2] = useSignInWithGoogle(auth);
 
-    const [sendPasswordResetEmail, sending, error2] = useSendPasswordResetEmail(
-        auth
-    );
+    const [sendPasswordResetEmail, sending, error3] = useSendPasswordResetEmail(auth);
 
 
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      setError5(errorMessage)
+    });
+
+    // setError('')
+  
     let navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
     if (user || user1) {
         navigate(from, { replace: true });
     }
+
 
 
 
@@ -47,10 +63,9 @@ const SignIn = () => {
     const handleSignInUser = (e) => {
 
         e.preventDefault()
-        signInWithEmailAndPassword(email, password)
+        signInWithEmailAndPassword1(email, password)
         console.log(error);
-
-
+        setError(error5)
 
     }
 
@@ -72,8 +87,7 @@ const SignIn = () => {
 
                 <input className=" border-2 w-100 rounded text-center fs-5 " style={{ height: '50px',backgroundColor:'orange', color:'black' }} type="submit" value="Sign In" />
                 <p className='text-danger mt-3' >Don't Have an account ?  <Link  className='text-decoration-none ' to='/signup'>Sign up</Link></p>
-                <p>{error ? error.message : ''}</p>
-
+                  {error ?<p className='text-danger mt-3' >{error}</p> : ''}
                 <div>
                     <span className='text-danger' >Forgot Password ?</span>
                     <button className='border-0 ms-2 bg-white text-primary'

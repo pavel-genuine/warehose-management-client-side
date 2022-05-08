@@ -13,7 +13,7 @@ const RequireAuth = ({children}) => {
 
 
     if(loading){
-        return <div style={{marginTop:'100px'}}>
+        return <div style={{margin:'200px 0 40vh 700px'}}>
             <Spinner animation="grow" />
             <Spinner style={{margin:'0 20px 0 20px '}} animation="grow" />
             <Spinner animation="grow" />

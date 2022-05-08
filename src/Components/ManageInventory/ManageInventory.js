@@ -12,6 +12,13 @@ const ManageInventory = () => {
     const [user] =useAuthState(auth)
     const navigate=useNavigate() 
 
+    if(items?.length===0){
+        return <div style={{margin:'200px 0 40vh 700px'}}>
+            <Spinner animation="grow" />
+            <Spinner style={{margin:'0 20px 0 20px '}} animation="grow" />
+            <Spinner animation="grow" />
+        </div>
+    }
 
 
     const handleDeleteOne = id =>{
