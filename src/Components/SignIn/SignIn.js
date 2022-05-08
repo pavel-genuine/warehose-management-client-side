@@ -18,7 +18,6 @@ const SignIn = () => {
     const [error,setError] =useState('')
     const [error5,setError5] =useState('')
 
-    // react-firebase-hook 
     let [
         signInWithEmailAndPassword1,
         user,
@@ -46,9 +45,9 @@ const SignIn = () => {
     let navigate = useNavigate();
     let location = useLocation();
     let from = location?.state?.from?.pathname || "/";
-    if (user || user1) {
-        navigate(from, { replace: true });
-    }
+    // if (user || user1) {
+    //     // navigate(from, { replace: true });
+    // }
 
 
 
@@ -70,6 +69,7 @@ const SignIn = () => {
 
         const {data} = await axios.post('https://secret-scrubland-28960.herokuapp.com/sign-in', {email});
         localStorage.setItem('accessToken', data?.accessToken);
+        navigate(from, { replace: true });
 
     }
 
@@ -78,8 +78,6 @@ const SignIn = () => {
     return (
         <div style={{height:'60vh'}} className=' d-flex flex-column my-5  align-items-center justify-content-center'>
             <div><Toaster/></div>
-
-            {/* react-bootstrap form  */}
             <Form onSubmit={handleSignInUser} className="signin" >
 
                 <Form.Group className="mb-3" controlId="formBasicEmail1">
