@@ -1,8 +1,10 @@
+import { async } from '@firebase/util';
+import axios from 'axios';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-// import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import './SignIn.css'
@@ -39,14 +41,13 @@ const SignIn = () => {
       setError5(errorMessage)
     });
 
-    // setError('')
   
     let navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
-    if (user || user1) {
-        navigate(from, { replace: true });
-    }
+    // if (user || user1) {
+    //     // navigate(from, { replace: true });
+    // }
 
 
 
@@ -60,12 +61,15 @@ const SignIn = () => {
         setPassword(e.target.value)
     }
 
-    const handleSignInUser = (e) => {
+    const handleSignInUser = async e => {
 
         e.preventDefault()
-        signInWithEmailAndPassword1(email, password)
-        console.log(error);
+        await signInWithEmailAndPassword1(email, password)
         setError(error5)
+
+        const {data} = await axios.post('http://localhost:5000/sign-in', {email});
+        localStorage.setItem('accessToken', data.accessToken);
+        navigate(from, { replace: true });
 
     }
 
@@ -73,7 +77,7 @@ const SignIn = () => {
 
     return (
         <div style={{height:'60vh'}} className=' d-flex flex-column my-5  align-items-center justify-content-center'>
-            {/* <div><Toaster/></div> */}
+            <div><Toaster/></div>
             <Form onSubmit={handleSignInUser} className="signin" >
 
                 <Form.Group className="mb-3" controlId="formBasicEmail1">
@@ -93,8 +97,8 @@ const SignIn = () => {
                     <button className='border-0 ms-2 bg-white text-primary'
                         onClick={async () => {
                             await sendPasswordResetEmail(email);
-                            // alert('Sent email');s
-                            // toast.success('Email sent successfully!')
+                            // alert('Sent email');
+                            toast.success('Email sent successfully!')
                         }}>Reset Password</button>
                 </div>
             </Form>

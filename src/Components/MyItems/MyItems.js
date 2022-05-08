@@ -1,3 +1,5 @@
+import axios from 'axios';
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
@@ -35,14 +37,41 @@ const MyItems = () => {
         }
     }
 
-    useEffect(()=>{
+    // useEffect(()=>{
         
-        const email =user?.email
-        const url = `https://secret-scrubland-28960.herokuapp.com/user-items?email=${email}`;
-        fetch(url)
-        .then(res=>res.json())
-        .then(data=>setMyItems(data))
-    },[user])
+    //     const email =user?.email
+    //     const url = `https://secret-scrubland-28960.herokuapp.com/user-items?email=${email}`;
+    //     fetch(url)
+    //     .then(res=>res.json())
+    //     .then(data=>setMyItems(data))
+    // },[user])
+
+    useEffect( () => {
+        
+        const getMyItems = async() =>{
+            const email = user.email;
+            const url = `http://localhost:5000/user-items?email=${email}`;
+            try{
+                const {data} = await axios.get(url,{
+                    headers:{
+                        authorization :`Bearer ${localStorage.getItem('accessToken')}`
+                    }
+                });
+                setMyItems(data);
+            }
+            catch(error){
+                console.log(error.message);
+                if(error.response.status === 401 || error.response.status === 403){
+                    signOut(auth);
+                    navigate('/sign-in')
+                }
+            }
+        }
+        getMyItems();
+
+    }, [user])
+
+
 
     return (
         <div className='row w-75 mx-auto ' style={{height:'80vh'}} >
