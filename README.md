@@ -1,7 +1,7 @@
 
 # Getting Started with Create React App
-## Home Depot, A home decor manufacturer full-stack website.
-## Live site : https://full-stack-12.web.app/
+## Gadget Arena, A simple warehouse management full-stack website.
+## Live site : [https://full-stack-11.web.app/]
 
 
 ## Features, Functionalities & Used Technologies::
