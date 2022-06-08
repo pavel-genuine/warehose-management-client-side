@@ -1,14 +1,13 @@
 
 # Getting Started with Create React App
 ## Gadget Arena, A simple warehouse management full-stack website.
-## Live site : [https://full-stack-11.web.app/]
+## Live site : https://full-stack-11.web.app/
 
 
 ## Features, Functionalities & Used Technologies::
-- Buyers can pay through Stripe payment system,
-- Admin can add new product & can delete any existing product.
-- Admin can ship the paid order & can delete any unpaid order.
-- Admin can change other users’ status to admin.
+- Users can update products by adding quantities & delivering it.
+- Users can add a new item and also can delete any existing item.
+- On the My Items tab user can items added by him.
 * Single Page Application
 * JSON data
 * Clear Navigation and Active Link
